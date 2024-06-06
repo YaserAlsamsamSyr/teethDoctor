@@ -1,0 +1,42 @@
+module.exports=(sequelize,DataTypes)=>{
+     const scrtiera=sequelize.define("scrtiera",{
+        "fName":{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        "lName":{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        "userName":{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        "password":{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        "birthDate":{
+            type:DataTypes.STRING,
+            allowNull:true
+        },
+        "mobileNumber":{
+            type:DataTypes.INTEGER,
+            allowNull:true
+        },
+        "landNumber":{
+            type:DataTypes.INTEGER,
+            allowNull:true
+        },
+        "image":{
+            type:DataTypes.STRING,
+            defaultValue:"NO IMAGE",
+            allowNull:true
+        }
+     });
+     scrtiera.associate=model=>{
+         scrtiera.belongsTo(model.doctor);
+         scrtiera.hasMany(model.patient);
+     };
+     return scrtiera;
+};

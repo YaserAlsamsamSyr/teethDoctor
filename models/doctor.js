@@ -1,0 +1,47 @@
+module.exports=(sequelize,DataTypes)=>{
+     const doctor=sequelize.define("doctor",{
+            "fName":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "lName":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "userName":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "password":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "birthDate":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "mobileNumber":{
+                type:DataTypes.INTEGER,
+                allowNull:false
+            },
+            "landNumber":{
+                type:DataTypes.INTEGER,
+                allowNull:false
+            },
+            "clinicAddress":{
+                type:DataTypes.STRING,
+                allowNull:false
+            },
+            "image":{
+                type:DataTypes.STRING,
+                allowNull:true,
+                defaultValue:"NO IMAGE"
+            }
+     });
+     doctor.associate=model=>{
+          doctor.hasOne(model.scrtiera,{onDelete:"CASCADE"});
+          doctor.hasMany(model.patient,{onDelete:"CASCADE"});
+          doctor.belongsToMany(model.time,{onDelete:"CASCADE",through:model.workTime});
+     };
+     return doctor;
+};

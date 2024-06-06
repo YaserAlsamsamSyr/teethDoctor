@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "teethDoctor",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "sql8609056",
+    "password": "qVPVIdu6Lx",
+    "database": "sql8609056",
+    "host": "sql8.freesqldatabase.com",
+    "dialect": "mysql"
+  }
+}
